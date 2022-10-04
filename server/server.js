@@ -17,6 +17,7 @@ app.use('/users', usersRouter);
 
 app.listen(process.env.PORT);
 app.get('/',(req,res)=>res.send('server online'));
+
 app.use('/user',usersRouter);
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, '../client/build')));
