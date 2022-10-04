@@ -1,10 +1,10 @@
-const userRouter = require('express').Router();
-const userActions = require('../Controllers/user-controllerr');
+const usersRouter = require('express').Router();
+const usersActions = require('../Controllers/user-controller');
 
-userRouter.get('/', userActions.getAllUser);
-userRouter.get('/:id', userActions.getUserById);
-userRouter.post('/', userActions.postUser);
-userRouter.put('/:id',userActions.putUser);
-userRouter.delete('/:id',userActions.deleteUser);
+usersRouter.get('/', usersActions.getAllUser);
+usersRouter.get('/:id', usersActions.getUserById);
+usersRouter.post('/', usersActions.postUser);
+usersRouter.put('/:id',usersActions.putUser);
+usersRouter.delete('/:id',usersActions.deleteUser);
 
-module.exports = userRouter;
+module.exports = usersRouter;

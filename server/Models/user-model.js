@@ -3,9 +3,11 @@ const schama = mongoose.Schema;
 
 const User = new schama(
   {
-    Name: { type: String, required: true },
+    FirstName: { type: String, required: true },
     FamName: { type: String, required: true },
     Count: { type: Number, required: true },
+    Phone : { type: Number, required: true },
+    IsArrive :{ type: Boolean }
   },
   { timestamps: true }
 );
