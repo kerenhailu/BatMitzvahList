@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { UsersContext } from "../Context/user";
 import { GetAllUser, PostUser } from "../Services/user";
-// import {Link} from "react-router-dom";
+
+
 export default function Home() {
+  const [open, setOpen] = useState(false);
   let { user, setUser } = useContext(UsersContext);
   let { count, setCount } = useContext(UsersContext);
 
@@ -16,73 +19,106 @@ export default function Home() {
     setUser({ ...user, ...(user.Count = count) });
     PostUser({ ...user });
     console.log(user);
+    // <Link to="/confirmation">confirmation</Link>
+    alert("תודה שעניתם");
   };
   const updateValue = (e) => {
     user[e.target.name] = e.target.value;
   };
 
+  const userIsArrive = (e) => {
+    user.IsArrive =true;
+    // addUserToList()
+  };
+  const userIsntArrive = (e) => {
+    user.IsArrive =false;
+    // addUserToList()
+  };
+
+
   return (
-    <div>
+    <div className="main">
       <img src="https://www.pokeisrael.net/forum/uploads/monthly_2016_09/57c94ac04a92e_.gif.26f8c145929d89fc8a99bfeaf59c2ace.gif" alt="BD"/><br/>
-      <img src="http://1.bp.blogspot.com/-zGuaFebnrhE/TlJQJ1LlZhI/AAAAAAAAAl0/PCzI9VCTuf0/s1600/%25D7%25A4%25D7%2595%25D7%2598%25D7%2595%25D7%25A9%25D7%2595%25D7%25A4+%25D7%259C%25D7%2591+%25D7%25A4%25D7%2595%25D7%25A2%25D7%259D+12.gif" alt="love"/>
+      <img src="http://1.bp.blogspot.com/-zGuaFebnrhE/TlJQJ1LlZhI/AAAAAAAAAl0/PCzI9VCTuf0/s1600/%25D7%25A4%25D7%2595%25D7%2598%25D7%2595%25D7%25A9%25D7%2595%25D7%25A4+%25D7%259C%25D7%2591+%25D7%25A4%25D7%2595%25D7%25A2%25D7%259D+12.gif" width={120} height={120} alt="love"/>
       <h1>אגם שלנו</h1>
-      <h1>חוגגת בת מצווה</h1>
-      <h2>אנו שמחים ונרגשים להזמין אתכם לחגוג עמנו</h2>
+      <h1 className="whiteText">חוגגת בת מצווה</h1>
+      <p>אנו שמחים ונרגשים להזמין אתכם לחגוג עמנו</p>
       <h2>יום שלישי - כ"ג תשרי התשפ"ג</h2>
       <h1>18-10-2022</h1>
       <h3>הוליווד-מתחם אירועים</h3>
       <h4>
-        בנימין שמוטקין 3, ראשון לציון, ישראל
+        בנימין שמוטקין 3, ראשון לציון, ישראל 📍
         <br />
-        קבלת פנים - 19:15
+        קבלת פנים - 19:00
       </h4>
-      <h3>נשמח מאוד לראותכם</h3>
+      <p>נשמח מאוד לראותכם</p>
       <h1>משפחת היילו </h1>
 
 <img src="https://online.fliphtml5.com/wryt/vwfq/files/pageConfig/baloons-1.gif?20200517104637" alt="balon"/>
       <h1>אישור הגעה</h1>
-      <h2>נשמח מאוד לראותכם בין אורחינו</h2>
-      <label>שם פרטי</label>
-      <br />
+      <h2 className="whiteText">נשמח מאוד לראותכם בין אורחינו</h2>
+      {/* <form> */}
+      {/* <label>שם פרטי</label>
+      <br /> */}
       <input
+      required
+      minLength={2}
+      className="nameInput"
+      // pattern="[A-Za-z]{3}" 
+      title="אנא רשמ/י את שמך"
         type="text"
         name="FirstName"
-        placeholder="Enter your fam name"
+        placeholder="שם פרטי"
         onChange={updateValue}
       />
-      <br />
+      {/* <br />
       <label>שם משפחה</label>
-      <br />
+      <br /> */}
       <input
+      required
+      minLength={2}
+      className="famNameInput"
+      // pattern="[A-Za-z]{3}" 
+      title="אנא רשמ/י את שם המשפחה"
         type="text"
         name="FamName"
-        placeholder="Enter your fam name"
+        placeholder="שם משפחה"
         onChange={updateValue}
       />
       <br />
-      <label>טלפון</label>
-      <br />
+      {/* <label>טלפון</label>
+      <br /> */}
       <input
+      className="phone"
+      required
+      // pattern="[A-Za-z]{3}" 
+      title="אנא רשמ/י את מספר הפלאפון"
         type="number"
         name="Phone"
-        placeholder="Enter your phone"
+        maxLength={10}
+        placeholder="מספר נייד"
         onChange={updateValue}
       />
       <br />
-      <label>כמות</label>
-      <br />
-      <button onClick={() => setCount(count + 1)}>+</button>
-      {/* <h1><input  type="number" name='Count' value={count} onChange={updateValue}/></h1> */}
+     <section className="countSection">
+      {/* <br /> */}
+      <button onClick={() => setCount(count + 1)}>➕</button>
       <h1 onChange={updateValue} name="Count">
         {count}
       </h1>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(count - 1)}>➖</button>
+      <h2>כמות</h2>
+      </section>
       <br />
-      <input type="checkbox" name="IsArrive" />
+      <button className="buttonArrive" onClick={userIsArrive}>מגיע/ה ✔️</button>
+      <button className="buttonArrive" onClick={userIsntArrive}>לא מגיע/ה ❌</button>
+      {/* <input type="checkbox" name="IsArrive" /> */}
       <br />
-      <button onClick={addUserToList}>save</button>
+      <button className="buttonArrive" onClick={addUserToList}>אשר הגעה</button>
+      {/* </form> */}
       <br />
       <br />
+      {open?"":""}
       {/* <table>
         <tr>
           <th>Name</th>
