@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <div className="main">
-      <img src="https://www.pokeisrael.net/forum/uploads/monthly_2016_09/57c94ac04a92e_.gif.26f8c145929d89fc8a99bfeaf59c2ace.gif" alt="BD"/><br/>
+      <img src="https://www.pokeisrael.net/forum/uploads/monthly_2016_09/57c94ac04a92e_.gif.26f8c145929d89fc8a99bfeaf59c2ace.gif" className="imgBD" alt="BD"/><br/>
       <img src="http://1.bp.blogspot.com/-zGuaFebnrhE/TlJQJ1LlZhI/AAAAAAAAAl0/PCzI9VCTuf0/s1600/%25D7%25A4%25D7%2595%25D7%2598%25D7%2595%25D7%25A9%25D7%2595%25D7%25A4+%25D7%259C%25D7%2591+%25D7%25A4%25D7%2595%25D7%25A2%25D7%259D+12.gif" width={120} height={120} alt="love"/>
       <h1>אגם שלנו</h1>
       <h1 className="whiteText">חוגגת בת מצווה</h1>

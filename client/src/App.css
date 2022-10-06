@@ -9,11 +9,13 @@
   color: rgb(53, 49, 49);
   /* height: 100%; */
 }
+
 .main{
   background-image: url(https://img1.picmix.com/output/stamp/normal/8/1/8/0/1540818_fa9b6.gif);
-  width: 50vw;
+  /* width: 50vw;
   margin-left: 25vw;
-  margin-right: 25vw;
+  margin-right: 25vw; */
+  /* box-shadow: 2px 2px 2px 2px rgb(245, 240, 240); */
   /* background-color: wheat; */
 }
 /* h1{
@@ -53,8 +55,8 @@ color: rgb(53, 49, 49);
   border: none;
 }
 .buttonArrive{
-  margin: 0.8%;
-  width: 30%;
+  margin: 0.5%;
+  width: 40vw;
   height: 5vh;
   font-size: large;
   border-radius: 10px;
@@ -63,4 +65,14 @@ color: rgb(53, 49, 49);
 .buttonArrive:hover{
   border-color: white;
   
+}
+@media screen and (max-width: 768px){
+  /* .main{
+    width: 100vw;
+    margin-right: 90vw;
+  } */
+  .imgBD{
+  width: 70vw;
+  height: 40vh;
+}
 }
