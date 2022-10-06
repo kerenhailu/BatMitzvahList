@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { UsersContext } from "../Context/user";
 import { GetAllUser, PostUser } from "../Services/user";
 
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   let { user, setUser } = useContext(UsersContext);
   let { count, setCount } = useContext(UsersContext);
 
@@ -118,7 +117,7 @@ export default function Home() {
       {/* </form> */}
       <br />
       <br />
-      {open?"":""}
+      {/* {open?"":""} */}
       {/* <table>
         <tr>
           <th>Name</th>
