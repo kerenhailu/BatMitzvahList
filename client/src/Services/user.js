@@ -1,6 +1,6 @@
 const basic_url =
   process.env.NODE_ENV === "production"
-    ? "https://bat-mitzvah-list.herokuapp.com"
+    ? "https://bat-mitzvah-list.herokuapp.com/users"
     : "http://localhost:4002/users";
 
   export const GetAllUser = async () => {
